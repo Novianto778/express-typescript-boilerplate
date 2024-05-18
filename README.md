@@ -60,7 +60,7 @@ Developed to streamline backend development, this boilerplate is your solution f
 
 ```
 .
-├── prisma
+├── .husky
 ├── src/
 │   ├── __tests__/
 │   │   ├── auth/
