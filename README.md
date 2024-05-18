@@ -1,5 +1,7 @@
 # 🚀 Express TypeScript Boilerplate 2024
 
+## Heavily inspired by [express-typescript-boilerplate](https://github.com/edwinhern/express-typescript-2024)
+
 [![Build Express Application](https://github.com/edwinhern/express-typescript-2024/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/edwinhern/express-typescript-2024/actions/workflows/build.yml)
 [![CodeQL](https://github.com/edwinhern/express-typescript-2024/actions/workflows/codeql.yml/badge.svg?branch=master)](https://github.com/edwinhern/express-typescript-2024/actions/workflows/codeql.yml)
 [![Docker Image CI](https://github.com/edwinhern/express-typescript-2024/actions/workflows/docker-image.yml/badge.svg?branch=master)](https://github.com/edwinhern/express-typescript-2024/actions/workflows/docker-image.yml)
@@ -34,15 +36,14 @@ Developed to streamline backend development, this boilerplate is your solution f
 - 📃 API Response Standardization: ServiceResponse class for consistent API responses.
 - 🐳 Docker Support: Ready for containerization and deployment.
 - 📝 Input Validation with Zod: Strongly typed request validation using Zod.
-- 🧩 API Spec Generation: Automated OpenAPI specification generation from Zod schemas to ensure up-to-date and accurate API documentation.
 
 ## 🛠️ Getting Started
 
 ### Step 1: 🚀 Initial Setup
 
-- Clone the repository: `git clone https://github.com/edwinhern/express-typescript-2024.git`
-- Navigate: `cd express-typescript-2024`
-- Install dependencies: `npm ci`
+- Clone the repository: `git clone https://github.com/novianto778/express-typescript-boilerplate.git`
+- Navigate: `cd express-typescript-boilerplate`
+- Install dependencies: `pnpm install --frozen-lockfile`
 
 ### Step 2: ⚙️ Environment Configuration
 
@@ -51,49 +52,52 @@ Developed to streamline backend development, this boilerplate is your solution f
 
 ### Step 3: 🏃‍♂️ Running the Project
 
-- Development Mode: `npm run dev`
-- Building: `npm run build`
-- Production Mode: Set `.env` to `NODE_ENV="production"` then `npm run build && npm run start`
+- Development Mode: `pnpm dev`
+- Building: `pnpm build`
+- Production Mode: Set `.env` to `NODE_ENV="production"` then `pnpm build && pnpm start`
 
 ## 📁 Project Structure
 
 ```
 .
-├── api
-│   ├── healthCheck
-│   │   ├── __tests__
-│   │   │   └── healthCheckRouter.test.ts
-│   │   └── healthCheckRouter.ts
-│   └── user
-│       ├── __tests__
-│       │   ├── userRouter.test.ts
-│       │   └── userService.test.ts
-│       ├── userModel.ts
-│       ├── userRepository.ts
-│       ├── userRouter.ts
-│       └── userService.ts
-├── api-docs
-│   ├── __tests__
-│   │   └── openAPIRouter.test.ts
-│   ├── openAPIDocumentGenerator.ts
-│   ├── openAPIResponseBuilders.ts
-│   └── openAPIRouter.ts
-├── common
-│   ├── __tests__
-│   │   ├── errorHandler.test.ts
-│   │   └── requestLogger.test.ts
+├── prisma
+├── src/
+│   ├── __tests__/
+│   │   ├── auth/
+│   │   │   ├── login.service.test.ts
+│   │   │   ├── register.service.test.ts
+│   │   │   └── ...
+│   │   └── user/
+│   │       └── same-structure-like-auth
+│   ├── api/
+│   │   ├── auth/
+│   │   │   ├── services/
+│   │   │   │   ├── login.service.ts
+│   │   │   │   ├── register.service.ts
+│   │   │   │   └── logout.service.ts
+│   │   │   ├── repositories/
+│   │   │   │   ├── login.repository.ts
+│   │   │   │   └── register.repository.ts
+│   │   │   ├── auth.controller.ts
+│   │   │   ├── auth.model.ts
+│   │   │   ├── auth.router.ts
+│   │   │   ├── auth.type.ts
+│   │   │   └── auth.utils.ts
+│   │   ├── user/
+│   │   │   └── same-structure-like-auth
+│   │   └── another-module
+│   ├── config
+│   ├── lib
 │   ├── middleware
-│   │   ├── errorHandler.ts
-│   │   ├── rateLimiter.ts
-│   │   └── requestLogger.ts
 │   ├── models
-│   │   └── serviceResponse.ts
-│   └── utils
-│       ├── commonValidation.ts
-│       ├── envConfig.ts
-│       └── httpHandlers.ts
-├── index.ts
-└── server.ts
+│   ├── services
+│   ├── config
+│   ├── types
+│   ├── utils
+│   ├── global.d.ts
+│   ├── index.ts
+│   └── server.ts
+└── .env
 
 ```
 

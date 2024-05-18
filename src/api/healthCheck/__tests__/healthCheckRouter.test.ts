@@ -1,7 +1,7 @@
 import { StatusCodes } from 'http-status-codes';
 import request from 'supertest';
 
-import { ServiceResponse } from '@/common/models/serviceResponse';
+import { ServiceResponse } from '@/models/serviceResponse';
 import { app } from '@/server';
 
 describe('Health Check API endpoints', () => {

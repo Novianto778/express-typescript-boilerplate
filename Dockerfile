@@ -7,13 +7,13 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Install app dependencies
-RUN npm ci
+RUN pnpm install --frozen-lockfile
 
 # Bundle app source
 COPY . .
 
 # Build the TypeScript files
-RUN npm run build
+RUN pnpm build
 
 # Expose port 8080
 EXPOSE 8080
