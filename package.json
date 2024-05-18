@@ -71,11 +71,7 @@
   },
   "lint-staged": {
     "**/*": "pnpm format",
-    "**/*.{js,ts}": "pnpm lint:fix",
-    "**/*.{js,ts,json,md}": [
-      "prettier --write",
-      "git add"
-    ]
+    "**/*.{js,ts}": "pnpm lint:fix"
   },
   "author": "Novianto",
   "license": "ISC"
