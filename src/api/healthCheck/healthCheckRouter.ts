@@ -10,8 +10,8 @@ export const healthCheckRouter: Router = (() => {
   router.get('/', (_req: Request, res: Response) => {
     const serviceResponse = new ServiceResponse({
       status: ResponseStatus.Success,
-      data: 'Health check successful',
-      message: 'Health check successful',
+      data: null,
+      message: 'Service is healthy',
       statusCode: StatusCodes.OK,
     });
 

@@ -2,7 +2,7 @@ import express from 'express';
 import { StatusCodes } from 'http-status-codes';
 import request from 'supertest';
 
-import errorHandler from '@/middleware/errorHandler';
+import { globalErrorHandler } from '@/middleware/errorHandler';
 import requestLogger from '@/middleware/requestLogger';
 
 describe('Request Logger Middleware', () => {
@@ -15,7 +15,7 @@ describe('Request Logger Middleware', () => {
     app.get('/error', () => {
       throw new Error('Test error');
     });
-    app.use(errorHandler());
+    app.use(globalErrorHandler);
   });
 
   describe('Successful requests', () => {
