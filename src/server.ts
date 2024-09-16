@@ -1,6 +1,6 @@
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
-import express, { Express } from 'express';
+import express, { Express, Request, Response } from 'express';
 import helmet from 'helmet';
 
 import { healthCheckRouter } from '@/api/healthCheck/healthCheckRouter';
@@ -15,6 +15,7 @@ import { globalErrorHandler } from './middleware/errorHandler';
 const app: Express = express();
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 // Set the application to trust the reverse proxy
 app.set('trust proxy', true);
@@ -30,7 +31,7 @@ app.use(requestLogger);
 // Routes
 app.use('/health-check', healthCheckRouter);
 app.use('/api/auth', authRouter);
-app.get('/', (req, res) => {
+app.get('/', (req: Request, res: Response) => {
   res.send('Home');
 });
 

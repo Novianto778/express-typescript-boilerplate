@@ -19,4 +19,4 @@ RUN pnpm build
 EXPOSE 8080
 
 # Start the app
-CMD npm run start
+CMD pnpm run start

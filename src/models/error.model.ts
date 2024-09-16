@@ -37,7 +37,32 @@ export class ValidationError extends Error {
 
   getErrors() {
     return this.errors.map((error) => {
-      return error.message;
+      return {
+        path: error.path.join('.'),
+        message: error.message,
+      };
     });
+  }
+}
+
+export class AppError extends Error {
+  private status;
+  private statusCodes: StatusCodes;
+  constructor(message = 'An error occured', status = 500, statusCodes = StatusCodes.INTERNAL_SERVER_ERROR) {
+    super(message);
+    this.status = status;
+    this.statusCodes = statusCodes;
+  }
+
+  getStatus() {
+    return this.status;
+  }
+
+  getErrors() {
+    return this.message;
+  }
+
+  getStatusCodes() {
+    return this.statusCodes;
   }
 }
